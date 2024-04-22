@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css">
+        <title>Desafio2</title>
+    </head>
+    <body>
+        <nav id="divisao1">
+            <h1>DncWeather</h1>
+            <div id="home1">
+            <a href="#buscaCEP" class="home1-a" href="">Endereços</a> 
+            <a href="#resposta" class="home1-a" href="">Previsão do tempo</a> 
+            
+            </div>
+           
+        </nav>
+    
+        <section id="divisao2">
+            <header id="header2">
+                <div>
+                    <h1>
+                        Descubra Mais com Precisão: <br>
+                        Previsões do Tempo e endereços <br>
+                        em tempo real.
+                    </h1>
+                </div>
+                        
+                <div>
+                    <img src="./image/nuvemSol.png" alt="erroImage">
+                </div>
+            </header>
+
+            <form id="form2" action="https://api.sheetmonkey.io/form/mrhU2o5hkdhnidhLiHAKKV" method="post">
+                <div class="form2-div">
+                    <label for="Nome">Primeiro Nome:</label>
+                    <input type="text" placeholder="Insira seu primeiro nome:">
+                </div>
+                <div class="form2-div">
+                    <label for="E-mail">E-mail:</label>
+                    <input type="email" placeholder="Insira seu e-mail">
+                </div>
+                <div class="form2-div">
+                    <label for="Sobrenome">CEP</label>
+                    <input id="CEP" type="text" placeholder="Insira o CEP">
+                </div>
+                 <div class="form2-div">
+                    <label for="Telefone">Digite a latitude e longitude para saber a previsão:</label>
+                    <div id="coordenada">
+                        <input id="Latitude" type="text" placeholder="Latitude">
+                        <input id="Longitude"  type="text" placeholder="Longitude">
+                    </div>
+                </div>
+                <div id="botao">
+                    
+                    <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+                    <input id="form2-button" type="submit" value="Buscar">
+
+                </div> 
+            </form>
+
+            <div id="tituloImagem1">
+                <div>
+                    <h1>
+                        Resultado da busca por CEP:
+                    </h1>
+                </div>
+                        
+                <div>
+                    <img src="./image/Localizacao.png" alt="erroImage">
+                </div>
+            </div>
+               
+            <div id="buscaCEP">
+                <div id="buscaCEP1">
+                    <h1 class="localizacao-buscaCEP">
+                        Logradouro/nome
+
+                    </h1>
+                    <input id="Rua" class="resultado-buscaCEP" type="text" placeholder="Ex.: Rua Justino Cobra">
+                                
+                </div>
+                <div id="buscaCEP2">
+                    <h1 class="localizacao-buscaCEP">
+                        Bairro/Distrito
+                    </h1>
+                    <input id="Bairro" class="resultado-buscaCEP" type="text" placeholder="Ex.: Bairro Vila Ema">
+                
+                </div>
+                <div id="buscaCEP3">
+                    <h1 class="localizacao-buscaCEP">
+                        Localidade/UF
+                    </h1>
+                    <input id="Cidade" class="resultado-buscaCEP" type="text" placeholder="Ex.: Cidade de São Paulo">
+                    <h1 class="resultado-buscaCEP">
+                        
+                    </h1>
+                </div>
+            </div>
+            <div id="tituloImagem2">
+                <div>
+                    <h1>
+                        Previsão do tempo na região:
+                    </h1>
+                </div>
+                        
+                <div>
+                    <img src="./image/nuvem.png" alt="erroImage">
+                </div>
+            </div>
+
+            <div>
+                <div id="resposta">
+                    <input  id="previsaoDoTempo" type="text" placeholder="Previsão de tempo de acordo com a região: Ex.:24° C">
+                </div>
+            </div>
+        
+
+        </section>
+
+
+
+        <footer>
+            <div class="divisao3-linha2">
+                <a href="">Termos de Uso</a>
+                <a href="">Política de Privacidade</a>
+            </div>
+        </footer> 
+
+
+    <script src="script.js"></script>
+    </body>
+</html>
+
