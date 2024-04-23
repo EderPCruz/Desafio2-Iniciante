@@ -1,5 +1,5 @@
 document.getElementById("form2").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita o envio padrão do formulário
+    event.preventDefault();
 
     const CEP = document.getElementById("CEP").value;
     try {
