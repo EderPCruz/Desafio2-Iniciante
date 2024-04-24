@@ -1,5 +1,3 @@
-document.getElementById("form2").addEventListener("submit", async function(event) {
-    event.preventDefault();
 
     const CEP = document.getElementById("CEP").value;
     try {
