@@ -2,32 +2,33 @@ document.getElementById("form2").addEventListener("submit", async function(event
     event.preventDefault(); // Evita o envio padrão do formulário
 
     const CEP = document.getElementById("CEP").value;
-    try {
-        const response = await fetch(`http://viacep.com.br/ws/${CEP}/json/`);
-        const data = await response.json();
-        console.log(data);
-        document.getElementById("Rua").value = data.logradouro;
-        document.getElementById("Bairro").value = data.bairro;
-        document.getElementById("Cidade").value = data.localidade;
-    } catch (error) {
-        alert(error.message);
-    }
-
     const latitude = document.getElementById("Latitude").value;
     const longitude = document.getElementById("Longitude").value;
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`;
+
     try {
-        const response = await fetch(apiUrl);
-        console.log(response)
-        const data = await response.json();
-        console.log(data);
+        // Requisição para API de CEP
+        const cepResponse = await fetch(`http://viacep.com.br/ws/${CEP}/json/`);
+        const cepData = await cepResponse.json();
+        console.log(cepData);
+        document.getElementById("Rua").value = cepData.logradouro;
+        document.getElementById("Bairro").value = cepData.bairro;
+        document.getElementById("Cidade").value = cepData.localidade;
+    } catch (error) {
+        alert("Erro ao obter dados do CEP.");
+    }
+
+    try {
+        // Requisição para API de clima
+        const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`);
+        const weatherData = await weatherResponse.json();
+        console.log(weatherData);
 
         document.getElementById("resposta").innerHTML = "";
-        for (let index = 0; index < data.hourly.temperature_2m.length; index++) {
-            document.getElementById("resposta").innerHTML += `<div>${data.hourly.time[index]} - ${data.hourly.temperature_2m[index]}</div>`;
+        for (let index = 0; index < weatherData.hourly.temperature_2m.length; index++) {
+            document.getElementById("resposta").innerHTML += `<div>${weatherData.hourly.time[index]} - ${weatherData.hourly.temperature_2m[index]}</div>`;
         }
     } catch (error) {
-        alert(error.message);
+        alert("Erro ao obter dados do clima.");
     }
 
     const primeiroNome = document.getElementById("Nome").value;
@@ -46,6 +47,6 @@ document.getElementById("form2").addEventListener("submit", async function(event
         const data = await response.json();
         console.log(data);
     } catch (error) {
-        alert(error.message);
+        alert("Erro ao enviar dados para o servidor.");
     }
 });
