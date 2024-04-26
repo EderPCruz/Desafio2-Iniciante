@@ -7,7 +7,7 @@ document.getElementById("form2").addEventListener("submit", async function(event
 
     try {
         // Requisição para API de CEP
-        const cepResponse = await fetch(`http://viacep.com.br/ws/${CEP}/json/`);
+        const cepResponse = await fetch(`https://viacep.com.br/ws/${CEP}/json/`);
         const cepData = await cepResponse.json();
         console.log(cepData);
         document.getElementById("Rua").value = cepData.logradouro;
